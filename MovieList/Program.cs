@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Movies.Library;
 
 namespace MovieList
@@ -37,15 +38,16 @@ namespace MovieList
                 seven
             };
             //////////////////////////////////////////////////
-            // USE ARRAYLIST AND GENERIC FOR LEARNING PURPOSES
+            listOfMovies.Sort((a, b) => a.GetTitle().CompareTo(b.GetTitle()));
             while (true)
             {
                 Console.WriteLine("Welcome to the Movie List Application!");
                 Console.WriteLine("There are 10 movies in this list.");
-                Console.Write("What category are you interested in? ");
+                var movieCategoryList = ListMovieCategories();
                 var category = Console.ReadLine();
                 foreach (var movie in listOfMovies)
                 {
+
                     if (category == movie.GetCategory().ToLower())
                     {
                         Console.WriteLine($"{movie.GetTitle()} - {movie.GetCategory()}");
@@ -60,5 +62,17 @@ namespace MovieList
                 }
             }
         }
+
+        public static string ListMovieCategories()
+        {
+            var movieListAlphabetical = String.Format("{0,9}{1,11}{2,8}{3,8}",
+                "1. Horror",
+                "2. Animated",
+                "3. SciFi",
+                "4. Drama");
+            return movieListAlphabetical;
+        }
+
+        
     }
 }

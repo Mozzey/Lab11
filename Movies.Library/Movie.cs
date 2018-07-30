@@ -13,15 +13,17 @@ namespace Movies.Library
             Category = category;
         }
 
-        public virtual string GetTitle()
+        public string GetTitle()
         {
             return Title;
         }
 
 
-        public virtual string GetCategory()
+        public string GetCategory()
         {
             return Category;
         }
+
+        
     }
 }
