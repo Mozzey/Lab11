@@ -38,15 +38,27 @@ namespace MovieList
             };
             //////////////////////////////////////////////////
             // USE ARRAYLIST AND GENERIC FOR LEARNING PURPOSES
-            Console.WriteLine("Welcome to the Movie List Application!");
-            Console.WriteLine("There are 10 movies in this list");
-            Console.WriteLine("What category are you interested in? ");
-            foreach (var movie in listOfMovies)
+            while (true)
             {
-                
-                Console.WriteLine($"{movie.GetTitle()} - {movie.GetCategory()}");
+                Console.WriteLine("Welcome to the Movie List Application!");
+                Console.WriteLine("There are 10 movies in this list.");
+                Console.Write("What category are you interested in? ");
+                var category = Console.ReadLine();
+                foreach (var movie in listOfMovies)
+                {
+                    if (category == movie.GetCategory().ToLower())
+                    {
+                        Console.WriteLine($"{movie.GetTitle()} - {movie.GetCategory()}");
+                    }
+                }
+                Console.Write("Would you like to look up another movie? (y/n)");
+                var runAgain = Console.ReadLine().ToLower();
+                if (!runAgain.StartsWith("y"))
+                {
+                    Console.WriteLine("Have a nice day!");
+                    break;
+                }
             }
-            Console.ReadKey();
         }
     }
 }
