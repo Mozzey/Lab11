@@ -1,0 +1,9 @@
+C:\Users\Mozzey\GrandCircus\Labs\Lab11\Movies.Library\bin\Debug\netstandard2.0\Movies.Library.deps.json
+C:\Users\Mozzey\GrandCircus\Labs\Lab11\Movies.Library\bin\Debug\netstandard2.0\Movies.Library.dll
+C:\Users\Mozzey\GrandCircus\Labs\Lab11\Movies.Library\bin\Debug\netstandard2.0\Movies.Library.pdb
+C:\Users\Mozzey\GrandCircus\Labs\Lab11\Movies.Library\obj\Debug\netstandard2.0\Movies.Library.csprojAssemblyReference.cache
+C:\Users\Mozzey\GrandCircus\Labs\Lab11\Movies.Library\obj\Debug\netstandard2.0\Movies.Library.csproj.CoreCompileInputs.cache
+C:\Users\Mozzey\GrandCircus\Labs\Lab11\Movies.Library\obj\Debug\netstandard2.0\Movies.Library.AssemblyInfoInputs.cache
+C:\Users\Mozzey\GrandCircus\Labs\Lab11\Movies.Library\obj\Debug\netstandard2.0\Movies.Library.AssemblyInfo.cs
+C:\Users\Mozzey\GrandCircus\Labs\Lab11\Movies.Library\obj\Debug\netstandard2.0\Movies.Library.dll
+C:\Users\Mozzey\GrandCircus\Labs\Lab11\Movies.Library\obj\Debug\netstandard2.0\Movies.Library.pdb
