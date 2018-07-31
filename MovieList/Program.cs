@@ -53,9 +53,7 @@ namespace MovieList
                 }
                 else
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Please enter and option from the menu.");
-                    movieList.ListMovieCategories();
                 }
                 if (!PlayAgain())
                 {

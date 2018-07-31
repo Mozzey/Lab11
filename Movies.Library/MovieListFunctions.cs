@@ -10,19 +10,19 @@ namespace Movies.Library
         {
             if (validOption == 1)
             {
-                this.DisplayHorrorMovies(movieList, validOption);
+                this.DisplayHorrorMovies(validOption);
             }
             else if (validOption == 2)
             {
-                this.DisplayAnimatedMovies(movieList, validOption);
+                this.DisplayAnimatedMovies(validOption);
             }
             else if (validOption == 3)
             {
-                this.DisplaySciFiMovies(movieList, validOption);
+                this.DisplaySciFiMovies(validOption);
             }
             else if (validOption == 4)
             {
-                this.DisplayDramaMovies(movieList, validOption);
+                this.DisplayDramaMovies(validOption);
             }
             else
             {
@@ -31,9 +31,9 @@ namespace Movies.Library
                 MovieCategoryDisplayList(movieList, validOption);
             }
         }
-      public void DisplayDramaMovies(List<Movie> listOfMovies, int category)
+      public void DisplayDramaMovies(int category)
         {
-            foreach (var movie in listOfMovies)
+            foreach (var movie in this)
             {
                 if (category == 4 && movie.GetCategory().ToLower() == "drama")
                 {
@@ -41,9 +41,9 @@ namespace Movies.Library
                 }
             }
         }
-      public void DisplaySciFiMovies(List<Movie> listOfMovies, int category)
+      public void DisplaySciFiMovies(int category)
         {
-            foreach (var movie in listOfMovies)
+            foreach (var movie in this)
             {
                 if (category == 3 && movie.GetCategory().ToLower() == "scifi")
                 {
@@ -51,9 +51,9 @@ namespace Movies.Library
                 }
             }
         }
-      public void DisplayAnimatedMovies(List<Movie> listOfMovies, int category)
+      public void DisplayAnimatedMovies(int category)
         {
-            foreach (var movie in listOfMovies)
+            foreach (var movie in this)
             {
                 if (category == 2 && movie.GetCategory().ToLower() == "animated")
                 {
@@ -61,9 +61,9 @@ namespace Movies.Library
                 }
             }
         }
-      public void DisplayHorrorMovies(List<Movie> listOfMovies, int category)
+      public void DisplayHorrorMovies(int category)
         {
-            foreach (var movie in listOfMovies)
+            foreach (var movie in this)
             {
                 if (category == 1 && movie.GetCategory().ToLower() == "horror")
                 {
