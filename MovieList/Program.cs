@@ -9,6 +9,8 @@ namespace MovieList
     {
         static void Main(string[] args)
         {
+            // New instance of MovieList
+            var movieList = new MovieListFunctions();
             ////////////////////////////////////////////////
             ///////////  TEST MOVIES ///////////////////////
             var starWars = new SciFi("Star Wars");
@@ -21,61 +23,40 @@ namespace MovieList
             var theMatrix = new SciFi("The Matrix");
             var fightClub = new Drama("Fight Club");
             var seven = new Drama("Seven");
-
             ////////////////////////////////////////////////
             ///////// TEST LIST OF MOVIES /////////////////
-            List<Movie> listOfMovies = new List<Movie>
-            {
-                starWars,
-                pokemon,
-                it,
-                scream,
-                incredibles,
-                zootopia,
-                serenity,
-                theMatrix,
-                fightClub,
-                seven
-            };
+            movieList.Add(starWars);
+            movieList.Add(pokemon);
+            movieList.Add(it);
+            movieList.Add(scream);
+            movieList.Add(incredibles);
+            movieList.Add(zootopia);
+            movieList.Add(serenity);
+            movieList.Add(theMatrix);
+            movieList.Add(fightClub);
+            movieList.Add(seven);
             //////////////////////////////////////////////////
-            listOfMovies.Sort((a, b) => a.GetTitle().CompareTo(b.GetTitle()));
+            // Sort the movie list alphabetically
+            movieList.Sort((a, b) => a.GetTitle().CompareTo(b.GetTitle()));
             bool isRunning = true;
             while (isRunning)
             {
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("Welcome to the Movie List Application!");
                 Console.WriteLine("There are 10 movies in this list.");
-                var movieCategoryList = ListMovieCategories();
-                Console.WriteLine($"\n{movieCategoryList}");
+                movieList.ListMovieCategories();
                 Console.Write("What category are you interested in?");
                 var category = Console.ReadLine();
-                if (int.TryParse(category, out int validOption) && (validOption > 0 && validOption < 5))
+                if (int.TryParse(category, out int validOption) && validOption > 0 && validOption < 5)
                 {
-                    switch (validOption)
-                    {
-                        case 1:
-                            DisplayHorrorMovies(listOfMovies, validOption);
-                            break;
-                        case 2:
-                            DisplayAnimatedMovies(listOfMovies, validOption);
-                            break;
-                        case 3:
-                            DisplaySciFiMovies(listOfMovies, validOption);
-                            break;
-                        case 4:
-                            DisplayDramaMovies(listOfMovies, validOption);
-                            break;
-                        default:
-                            break;
-                    }
-                    
+                    movieList.MovieCategoryDisplayList(movieList, validOption);
                 }
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Please enter and option from the menu.");
+                    movieList.ListMovieCategories();
                 }
-
                 if (!PlayAgain())
                 {
                     Console.WriteLine("Have a nice day!");
@@ -84,7 +65,6 @@ namespace MovieList
                 
             }
         }
-
         private static bool PlayAgain()
         {
             Console.ForegroundColor = ConsoleColor.White;
@@ -103,60 +83,6 @@ namespace MovieList
                 return PlayAgain();
             }
         }
-
-        private static void DisplayDramaMovies(List<Movie> listOfMovies, int category)
-        {
-            foreach (var movie in listOfMovies)
-            {
-                if (category == 4 && movie.GetCategory().ToLower() == "drama")
-                {
-                    Console.WriteLine($"{movie.GetTitle()}");
-                }
-            }
-        }
-
-        private static void DisplaySciFiMovies(List<Movie> listOfMovies, int category)
-        {
-            foreach (var movie in listOfMovies)
-            {
-                if (category == 3 && movie.GetCategory().ToLower() == "scifi")
-                {
-                    Console.WriteLine($"{movie.GetTitle()}");
-                }
-            }
-        }
-
-        private static void DisplayAnimatedMovies(List<Movie> listOfMovies, int category)
-        {
-            foreach (var movie in listOfMovies)
-            {
-                if (category == 2 && movie.GetCategory().ToLower() == "animated")
-                {
-                    Console.WriteLine($"{movie.GetTitle()}");
-                }
-            }
-        }
-        public static void DisplayHorrorMovies(List<Movie> listOfMovies, int category)
-        {
-            foreach (var movie in listOfMovies)
-            {
-                if (category == 1 && movie.GetCategory().ToLower() == "horror")
-                {
-                    Console.WriteLine($"{movie.GetTitle()}");
-                }
-            }
-        }
-        public static string ListMovieCategories()
-        {
-            var movieListAlphabetical = String.Format("{0,9}\n{1,11}\n{2,8}\n{3,8}",
-                "1. Horror",
-                "2. Animated",
-                "3. SciFi",
-                "4. Drama");
-            return movieListAlphabetical;
-        }
-
-        
         
     }
 }
